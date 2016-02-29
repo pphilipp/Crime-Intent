@@ -1,7 +1,9 @@
 package com.develop.philipp.criminalintent.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.develop.philipp.criminalintent.CrimeActivity;
 import com.develop.philipp.criminalintent.R;
 import com.develop.philipp.criminalintent.model.Crime;
 import com.develop.philipp.criminalintent.model.CrimeLab;
@@ -34,7 +37,10 @@ public class CrimeListFragment  extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Crime c = ((CrimeAdapter)getListAdapter()).getItem(position);
-        Log.d(LOG_TAG,c.getTitle()+ "clicked");
+        Log.d(LOG_TAG, c.getTitle() + "clicked");
+        Intent intent = new Intent(getActivity(), CrimeActivity.class);
+        intent.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getId());
+        startActivity(intent);
     }
 
     private class CrimeAdapter extends ArrayAdapter<Crime> {
