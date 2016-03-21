@@ -1,9 +1,7 @@
 package com.develop.philipp.criminalintent.fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.View;
@@ -14,11 +12,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.develop.philipp.criminalintent.CrimeActivity;
+import com.develop.philipp.criminalintent.CrimePagerActivity;
 import com.develop.philipp.criminalintent.R;
 import com.develop.philipp.criminalintent.model.Crime;
 import com.develop.philipp.criminalintent.model.CrimeLab;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CrimeListFragment  extends ListFragment {
     public static final String LOG_TAG = "CrimeListFragment->";
@@ -28,7 +26,7 @@ public class CrimeListFragment  extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActivity().setTitle(R.string.crime_title_hint);
-        mCrimes = CrimeLab.get(getActivity()).getmCrimes();
+        mCrimes = CrimeLab.get(getActivity()).getCrimes();
 
         CrimeAdapter adapter = new CrimeAdapter(mCrimes);
         setListAdapter(adapter);
@@ -44,7 +42,7 @@ public class CrimeListFragment  extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         Crime c = ((CrimeAdapter)getListAdapter()).getItem(position);
         Log.d(LOG_TAG, c.getTitle() + "clicked");
-        Intent intent = new Intent(getActivity(), CrimeActivity.class);
+        Intent intent = new Intent(getActivity(), CrimePagerActivity.class);
         intent.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getId());
         startActivity(intent);
     }

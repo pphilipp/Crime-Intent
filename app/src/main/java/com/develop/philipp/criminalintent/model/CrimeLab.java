@@ -33,7 +33,7 @@ public class CrimeLab {
         return sCrimeLab;
     }
 
-    public ArrayList<Crime> getmCrimes() {
+    public ArrayList<Crime> getCrimes() {
         return mCrimes;
     }
 
