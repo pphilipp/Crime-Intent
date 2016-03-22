@@ -20,9 +20,17 @@ public class CrimePagerActivity extends FragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mViewPager = new ViewPager(this);
+
+        /*
+        *id was create just in an xml resource
+        *because viewHolder created programmatically.
+        */
         mViewPager.setId(R.id.viewPager);
         setContentView(mViewPager);
 
+        /*
+        * get our data from generator fake data object 'CrimeLab'.
+        */
         mCrimes = CrimeLab.get(this).getCrimes();
 
         FragmentManager fm = getSupportFragmentManager();

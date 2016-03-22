@@ -59,12 +59,14 @@ public class CrimeFragment extends Fragment {
         if(mDateButton != null) {
             mDateButton.setText(mCrime.getDate().toString());
 
-            // onClick button for set date.
+            // onClick button for open datePiker fragment to set date.
             mDateButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     FragmentManager fm = getActivity().getSupportFragmentManager();
-                    DatePickerFragment dialog = new DatePickerFragment();
+
+                    //create new instance and set date from current mCrime.
+                    DatePickerFragment dialog = DatePickerFragment.newInstance(mCrime.getDate());
                     dialog.show(fm, DIALOG_DATE);
                 }
             });
