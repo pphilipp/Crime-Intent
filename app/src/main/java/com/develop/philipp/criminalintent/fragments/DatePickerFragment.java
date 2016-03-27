@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import com.develop.philipp.criminalintent.R;
@@ -15,6 +16,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class DatePickerFragment extends DialogFragment {
+    public static final String LOG_TAG = DatePickerFragment.class.getSimpleName();
     public static final String EXTRA_DATE =
             "com.develop.philipp.criminalintent.fragments.date";
     private Date mDate;
@@ -49,9 +51,9 @@ public class DatePickerFragment extends DialogFragment {
                 // converting year, monthOfYear, dayOfMonth to Date object.
                 mDate = new GregorianCalendar(year, monthOfYear, dayOfMonth).getTime();
 
-                /*
+                /**
                 * Update arguments for saving chose value when device turning.
-                * */
+                **/
                 getArguments().putSerializable(EXTRA_DATE, mDate);
             }
         });
@@ -70,7 +72,7 @@ public class DatePickerFragment extends DialogFragment {
                 .create();
     }
 
-    /*
+    /**
      * Send date from dataPicker fragment to parent fragment.
      */
     private void sendResult(int resultCode) {

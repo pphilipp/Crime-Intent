@@ -10,8 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import com.develop.philipp.criminalintent.CrimeActivity;
 import com.develop.philipp.criminalintent.CrimePagerActivity;
 import com.develop.philipp.criminalintent.R;
 import com.develop.philipp.criminalintent.model.Crime;

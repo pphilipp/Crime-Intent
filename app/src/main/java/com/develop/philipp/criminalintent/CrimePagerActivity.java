@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class CrimePagerActivity extends FragmentActivity {
-    private ViewPager mViewPager;
+    ViewPager mViewPager;
     private ArrayList<Crime> mCrimes;
 
     @Override
