@@ -14,6 +14,7 @@ public class Crime {
         //generation unique identifier
         mId = UUID.randomUUID();
         mDate = new Date();
+        mSolved = false;
 
     }
 

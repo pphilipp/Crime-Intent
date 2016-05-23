@@ -6,13 +6,15 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+
 import com.develop.philipp.criminalintent.fragments.CrimeFragment;
 import com.develop.philipp.criminalintent.model.Crime;
 import com.develop.philipp.criminalintent.model.CrimeLab;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class CrimePagerActivity extends FragmentActivity {
+public class CrimePagerActivity extends AppCompatActivity {
     ViewPager mViewPager;
     private ArrayList<Crime> mCrimes;
 
@@ -22,14 +24,14 @@ public class CrimePagerActivity extends FragmentActivity {
         mViewPager = new ViewPager(this);
 
         /*
-        *id was create just in an xml resource
-        *because viewHolder created programmatically.
+        *   id was create just in an xml resource
+        *   because viewHolder created programmatically.
         */
         mViewPager.setId(R.id.viewPager);
         setContentView(mViewPager);
 
         /*
-        * get our data from generator fake data object 'CrimeLab'.
+        *   get our data from generator fake data object 'CrimeLab'.
         */
         mCrimes = CrimeLab.get(this).getCrimes();
 
