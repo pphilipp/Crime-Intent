@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,11 +30,9 @@ public class CrimeListFragment  extends ListFragment {
         setHasOptionsMenu(true);
         getActivity().setTitle(R.string.crime_title_hint);
         mCrimes = CrimeLab.get(getActivity()).getCrimes();
-
         CrimeAdapter adapter = new CrimeAdapter(mCrimes);
         setListAdapter(adapter);
     }
-
     @Override
     public void onResume() {
         super.onResume();

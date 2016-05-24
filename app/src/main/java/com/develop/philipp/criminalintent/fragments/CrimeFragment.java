@@ -53,7 +53,7 @@ public class CrimeFragment extends Fragment {
                     NavUtils.navigateUpFromSameTask(getActivity());
                 }
                 return true;
-            default:return super.onOptionsItemSelected(item);
+            default: return super.onOptionsItemSelected(item);
         }
     }
 
@@ -61,12 +61,6 @@ public class CrimeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_crime, container, false);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-//            if (NavUtils.getParentActivityName(getActivity()) != null) {
-//                getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-//            }
-//        }
-
         mTitleField = (EditText) v.findViewById(R.id.crime_title);
         mTitleField.setText(mCrime.getTitle());
         mTitleField.addTextChangedListener(new TextWatcher() {
@@ -126,6 +120,13 @@ public class CrimeFragment extends Fragment {
             Log.d(LOG_TAG, date.toString());
             updateDate();
         }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(LOG_TAG, "onPause()");
+        CrimeLab.get(getActivity()).saveCrimes();
     }
 
     private void updateDate() {
